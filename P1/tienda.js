@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
       var mime = "text/html"
 
       //Definición del tipo de imágenes
-      if(resource_type == 'jpg' || resource_type == 'png'){
+      if(resource_type == 'jpg' || resource_type == 'png' || resource_type == 'PNG'){
           mime = "image/" + resource_type;
       }
 
