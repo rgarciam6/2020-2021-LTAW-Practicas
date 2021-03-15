@@ -19,8 +19,7 @@ const server = http.createServer((req, res) => {
     console.log(url.pathname);
 
     //Se inicializa la variable recurso
-    var resource = ""; 
-    
+    var resource = "";
     //Analizar el recurso solicitado
     if (url.pathname == '/') {
       resource += "/tienda.html"; //Si pide la página principal
@@ -34,6 +33,35 @@ const server = http.createServer((req, res) => {
 
     console.log("Recurso: " + resource);
     console.log("Extensión: " + resource_type);
+
+    //Lectura asíncrona
+    fs.readFile(resource, function(err, data){
+
+      //Definición del tipo de archivo html.
+      var mime = "text/html"
+
+      //Definición del tipo de imágenes
+      if(resource_type == 'jpg' || resource_type == 'png'){
+          mime = "image/" + resource_type;
+      }
+
+      //Definición del tipo de archivo css
+      if (resource_type == "css"){
+          mime = "text/css";
+      }
+
+      //Fichero no encontrado
+      if (err){
+          //Lanza error
+          res.writeHead(404,{'Content-Type': mime})
+          res.write(data);
+          res.end();
+      }else{
+          res.writeHead(200, {'Content-Type': mime});
+          res.write(data);
+          res.end();
+      }
+    });
 });
 
 server.listen(PUERTO);
