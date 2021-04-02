@@ -1,20 +1,78 @@
-#cabecera {
+body{
+    background-image: url(img/fondo.jpg);
+    background-size: cover;
+}
+
+#cabecera{
+    display:block;
+    margin:auto;
+    width: 100%;
+    height: 350px;
+}
+
+#productos{
+    text-align:center;
+    border-width: 3px;
+    border-radius: 60px;  
+}
+#Logo-thriller{
+    width: 200px;
+    height: 200px;
+    float: left;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 60px;
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 100px;
+}
+
+#Logo-romantica{
+    width: 200px;
+    height: 200px;
     align-items: center;
-    width:1000; 
-    height: 300;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 60px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 60px;
+    margin-bottom: 100px;
 }
 
-#thriller{
-    width: 200;
-    height: 200;
-    left: 100;
+#Logo-historica{
+    width: 200px;
+    height: 200px;
+    float: right;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 60px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 60px;
+    margin-bottom: 100px;
 }
 
-#romantica{
-    width: 200;
-    height: 200;
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+  }
+
+#github{
+    float: center;
+	width: 30px;
+	height: auto;
 }
-#historica{
-    width: 200;
-    height: 200;
+
+#Barra{
+    text-align:center;
+    background-color:rgba(255, 255, 255, 0.493);
+    margin: 20px 100px 20px 100px;
+    border-width: 3px;
+    border-radius: 60px;
 }
