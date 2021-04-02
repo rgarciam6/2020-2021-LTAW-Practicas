@@ -58,6 +58,7 @@ const server = http.createServer((req, res) => {
           res.end();
       }else{
           res.writeHead(200, {'Content-Type': mime});
+          console.log("Peticion Recibida, 200 OK");
           res.write(data);
           res.end();
       }
