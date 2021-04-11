@@ -57,7 +57,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(404, {'Content-Type': mime});
         console.log("404 Not Found");
         res.write(data);
-        return res.end();
+        res.end();
       }else{
           res.writeHead(200, {'Content-Type': mime});
           console.log("Peticion Recibida, 200 OK");
