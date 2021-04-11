@@ -14,45 +14,82 @@ body{
     border-width: 3px;
     border-radius: 60px;  
 }
+
+#reina-roja {
+    align-content: center;
+}
 #Logo-reina{
     width: 200px;
     height: auto;
-    float: left;
     margin-top: 20px;
-    margin-left: 60px;
-    margin-right: 60px;
-    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
 }
 #Texto-reina{
-    display: inline-block;
-    margin-top: 20px;
-    margin-left: 0px;
-    margin-right: 60px;
-    margin-bottom: 100px;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    font-family: Verdana;
+    color: white;
 }
 
+#chica {
+    align-content: center;
+}
 #Logo-chica{
     width: 200px;
     height: auto;
-    align-items: center;
     margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 60px;
-    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
 }
 
+#Texto-chica{
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    font-family: Verdana;
+    color: white;
+}
+
+#harry {
+    align-content: center;
+}
 #Logo-harry{
     width: 200px;
     height: auto;
-    float: right;
     margin-top: 20px;
-    margin-left: 10px;
-    margin-right: 60px;
-    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+#Texto-harry{
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    font-family: Verdana;
+    color: white;
+}
+
+#button{
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 100%;
+}
+
+#carrito{
+    width: 30px;
+    height: 30px;
 }
 
 footer {
-    position: fixed;
+    position: static;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -70,4 +107,6 @@ footer {
     text-align:center;
     background-color: white;
 }
+
+
 
