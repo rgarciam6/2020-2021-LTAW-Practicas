@@ -41,7 +41,7 @@ const server = http.createServer((req, res) => {
       var mime = "text/html"
 
       //Definición del tipo de imágenes
-      if(resource_type == 'jpg' || resource_type == 'png' || resource_type == 'PNG'){
+      if(resource_type == 'jpg' || resource_type == 'png' || resource_type == 'PNG' || resource_type == 'gif'){
           mime = "image/" + resource_type;
       }
 
@@ -51,11 +51,13 @@ const server = http.createServer((req, res) => {
       }
 
       //Fichero no encontrado
-      if (err){
-          //Lanza error
-          res.writeHead(404,{'Content-Type': mime})
-          res.write(data);
-          res.end();
+      if (err) {
+        resource = "./error.html";
+        data = fs.readFileSync(resource);
+        res.writeHead(404, {'Content-Type': mime});
+        console.log("404 Not Found");
+        res.write(data);
+        return res.end();
       }else{
           res.writeHead(200, {'Content-Type': mime});
           console.log("Peticion Recibida, 200 OK");
