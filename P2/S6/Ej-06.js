@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
 
   //-- Determinar el contenido del mensaje de respuesta
   let content_type = "text/html";
-  let content = EJ5_HTML.replace("HTML_EXTRA","");
+  let content = EJ6_HTML.replace("HTML_EXTRA","");
 
   //-- Leer la Cookie recibida y mostrarla en la consola
   const cookie = req.headers.cookie;
