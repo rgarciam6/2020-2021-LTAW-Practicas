@@ -1,0 +1,64 @@
+[
+    {
+        "productos": [
+                        {
+                            "nombre": "Thriller",
+                            "descripcion": "Reina Roja",
+                            "stock": 7
+                        },
+                        {
+                            "nombre": "Novela Romántica",
+                            "descripcion": "En tus zapatos",
+                            "stock": 10
+                        },
+                        {
+                            "nombre": "Novela histórica",
+                            "descripcion": "Dime quién soy",
+                            "stock": 6
+                        }
+                    ]      
+    },
+    {
+        "usuarios": [ 
+                        {
+                            "nombre": "rebe",
+                            "real": "Rebeca García",
+                            "email": "rgm@gmail.com"
+
+                        },
+                        {
+                            "nombre": "pepe",
+                            "real": "José Martínez",
+                            "email": "jmg@gmail.com"
+                        }
+                    ]
+    },
+    {
+        "pedidos": [
+                        {   
+                            "usuario": "rebe",
+                            "tarjeta": 789456,
+                            "productos": [
+                                            {
+                                                "producto": "Thriller",
+                                                "unidades": 1
+                                            }
+                                         ]
+                        }, 
+                        {   
+                            "usuario": "pepe",
+                            "tarjeta": 123456,
+                            "productos": [
+                                            {
+                                                "producto": "Novela Romántica",
+                                                "unidades": 2
+                                            },
+                                            {
+                                                "producto": "Novela Histórica",
+                                                "unidades": 1
+                                            }
+                                         ]
+                        }
+                   ]
+    }
+]
