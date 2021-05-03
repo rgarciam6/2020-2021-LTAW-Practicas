@@ -1,0 +1,26 @@
+#barradeinicio{
+    text-align:center;
+    background-color: white;
+}
+
+#gif{
+    width: 50%;
+    height: 50%;
+    margin:10px auto;
+	display:block;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+  }
+
+#github{
+    float: center;
+	width: 30px;
+	height: auto;
+}
