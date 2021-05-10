@@ -9,6 +9,39 @@ const fs = require('fs');
 //Definición del puerto
 const PUERTO = 9000;
 
+//Definición de los tipos mime 
+const mime = {
+    "html" : "text/html",
+    "css"  : "text/css",
+    "js"   : "application/javascript",
+    "jpg"  : "image/jpg",
+    "png"  : "image/png",
+    "PNG"  : "image/png",
+    "gif"  : "image/gif",
+    "json" : "application/json"
+  };
+
+
+//Página de los productos
+const THRILLER = fs.readFileSync('thriller.html', 'utf-8');  
+const ROMANTICA = fs.readFileSync('romantica.html', 'utf-8');
+const HISTORICA = fs.readFileSync('historica.html', 'utf-8');
+
+//Página de error
+const ERROR = fs.readFileSync('error.html', 'utf-8');
+
+//Página formulario login
+const LOGIN = fs.readFileSync('login.html', 'utf-8');
+
+//Página login correcto
+const LOGIN_CORRECTO = fs.readFileSync('login-correcto.html', 'utf-8');
+
+//Página login incorrecto
+const LOGIN_INCORRECTO = fs.readFileSync('login-incorrecto.html', 'utf-8');
+
+//Página usuario ya logueado
+const LOGIN_USER = fs.readFileSync('usuario-logueado.html', 'utf-8');
+
 //Creación del servidor
 const server = http.createServer((req, res) => {
 
