@@ -1,5 +1,5 @@
 //Rebeca García Mencía
-//P1 - TIENDA
+//P2 - TIENDA
 
 //Importando módulos
 const url = require('url');
@@ -68,4 +68,4 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PUERTO);
-console.log("Servidor de la tienda online escuchando en puerto: " + PUERTO)
+console.log("Servidor de la tienda online escuchando en puerto: " + PUERTO);
