@@ -1,0 +1,60 @@
+[
+    {
+        "productos": [
+            {
+                "nombre": "Reina Roja",
+                "descripcion":"Novela de Juan Gómez Jurado",
+                "stock": 10,
+                "precio": "20.90€"
+            },
+            {
+                "nombre": "Un cuento perfecto",
+                "descripcion": "Novela de Elísabet Benavent",
+                "stock": 3,
+                "precio": "18.90€"
+            },
+            {
+                "nombre": "Dime quién soy",
+                "descripcion":"Novela de Julia Navarro",
+                "stock": 15,
+                "precio": "23.90€"
+            }
+        ]
+    },
+    {
+        "usuarios": [ 
+                        {
+                            "usuario": "rgarciam",
+                            "nombre": "Rebeca",
+                            "email": "rgm@gmail.com",
+                            "password": "rebe"
+
+                        },
+                        {
+                            "usuario": "root",
+                            "nombre": "root",
+                            "email": "root@gmail.com",
+                            "password": "rootpass"
+                        }
+                    ]
+    },
+    {
+        "pedidos": [
+                        {   
+                            "usuario": "rgarciam",
+                            "tarjeta": 789456,
+                            "direccion": "Calle de los Libreros, 6",
+                            "productos": [
+                                            {
+                                                "producto": "Thriller",
+                                                "unidades": 1
+                                            },
+                                            {
+                                                "producto": "Romantica",
+                                                "unidades": 1
+                                            }
+                                         ]
+                        }
+                   ]
+    }
+]

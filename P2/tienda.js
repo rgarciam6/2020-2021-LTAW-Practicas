@@ -22,6 +22,8 @@ const mime = {
   };
 
 
+//Página principal
+const PAGINAPPAL = fs.readFileSync('tienda.html', 'utf-8');
 //Página de los productos
 const THRILLER = fs.readFileSync('thriller.html', 'utf-8');  
 const ROMANTICA = fs.readFileSync('romantica.html', 'utf-8');
@@ -42,63 +44,180 @@ const LOGIN_INCORRECTO = fs.readFileSync('login-incorrecto.html', 'utf-8');
 //Página usuario ya logueado
 const LOGIN_USER = fs.readFileSync('usuario-logueado.html', 'utf-8');
 
+//Fichero JSON con la estructura de la tienda
+const FICHERO_JSON = "tienda.json";
+
+//Fichero JSON modificado
+const FICHERO_JSON_MODIFICADO = "tienda-modificada.json";
+
+//Lectura del fichero JSON
+const  tienda_json = fs.readFileSync(FICHERO_JSON);
+
+const tienda = JSON.parse(tienda_json);
+
+//Definición página principal
+let paginappal;
+
+//Definición contenido solicitado por el usuario
+let requested_content;
+
+//Lista de usuarios registrados
+let registered_users = [];
+console.log("Usuarios registrados");
+tienda[1]["usuarios"].forEach((element, index)=>{
+    console.log("Usuario " + (index + 1) + ": " + element.usuario);
+    registered_users.push(element.usuario);
+  });
+
+//Lista de productos disponibles
+let productos_disponibles = [];
+let lista_productos = [];
+console.log("Productos disponibles");
+tienda[0]["productos"].forEach((element, index)=>{
+  console.log("Producto " + (index + 1) + ": " + element.nombre + ", Precio: " + element.precio + ", Stock: " + element.stock);
+  productos_disponibles.push([element.nombre, element.descripcion, element.precio, element.stock]);
+  lista_productos.push(element.nombre);
+});
+
+
 //Creación del servidor
 const server = http.createServer((req, res) => {
 
-    console.log("Petición recibida")
+    console.log("Petición recibida");
+  
+    //Lectura de la cookie recibida
+    const cookie = req.headers.cookie;
 
-    //Construir el objeto url con la url de la solicitud
-    const url = new URL(req.url, 'http://' + req.headers['host']);
-    console.log(url.pathname);
+    //Declaración de variable para guardar el usuario
+    let user;
 
-    //Se inicializa la variable recurso
-    var resource = "";
-    //Analizar el recurso solicitado
-    if (url.pathname == '/') {
-      resource += "/tienda.html"; //Si pide la página principal
-    } else {
-      resource += url.pathname; //Si pide otro recurso
+    //Comprobamos si hay cookies
+    if (cookie) {
+        console.log("Cookie: " + cookie);
+
+        //Obtener un array con todos los pares nombre-valor
+        let pares = cookie.split(";");
+
+        //Recorrer todos los pares nombre-valor
+        pares.forEach((element, index) => {
+
+        //Obtener los nombres y valores por separado
+        let [nombre, valor] = element.split('=');
+
+        ////Leer el usuario
+        //Solo si el nombre es 'user'
+        if (nombre.trim() === 'user') {
+            user = valor;
+        }
+        });
+    }else {
+        console.log("Petición sin cookie");
     }
 
-    //Obtención del tipo de recurso solicitado
-    resource_type = resource.split(".")[1];
-    resource = "." + resource;
+    //Construir el objeto url con la url de la solicitud
+    const url = new URL(req.url, 'http://' + req.headers['host']);  
+    console.log("");
+    console.log("Método: " + req.method);
+    console.log("Recurso: " + req.url);
+    console.log("Ruta: " + url.pathname); 
+    console.log("Parametros: " + url.searchParams); 
+    //-- Leer los parámetros
+    let nombre = url.searchParams.get('nombre');
+    console.log(" Nombre usuario: " + nombre);
 
-    console.log("Recurso: " + resource);
-    console.log("Extensión: " + resource_type);
+    let content_type = mime["html"]; 
+  
+    //Analizar los recursos solicitados
+    if(url.pathname == '/'){
+        //Comprobar si el usuario está registrado
+        if(user){
+            //Añadir nombre a página principal
+            requested_content = PAGINAPPAL.replace('<h3></h3>', '<h3> Usuario: ' + user + '</h3>');
+            requested_content = requested_content.replace('<b></b>',
+                                    '<a  class= "elemen" href="/comprar">Finalizar Comprar</a>');
+            paginappal = requested_content;
+        }else{
+            //Muestra la página principal con el login
+            requested_content = PAGINAPPAL; 
+            paginappal = requested_content;
+        }
+    
+    //Login
+    }else if (url.pathname == '/login'){
+        //Comprobar si hay cookie del usuario
+        if(user){
+            //Si hay cookie
+            console.log('Usuario ya logueado');
+            requested_content = LOGIN_USER.replace("HTML_EXTRA", user );
 
-    //Lectura asíncrona
-    fs.readFile(resource, function(err, data){
+        }else{
+        console.log('Usuario no logueado');
+        //Se envía formulario login
+        requested_content = LOGIN;
+        }
+        ext = "html";
+    //Procesar
 
-      //Definición del tipo de archivo html.
-      var mime = "text/html"
+    }else if (url.pathname == '/procesar'){
+        //Se comprueba que el usuario está registrado en el JSON
+        if ((registered_users.includes(nombre))){
 
-      //Definición del tipo de imágenes
-      if(resource_type == 'jpg' || resource_type == 'png' || resource_type == 'PNG' || resource_type == 'gif'){
-          mime = "image/" + resource_type;
+            console.log('User: ' + nombre);
+
+            //Se asigna la cookie
+            res.setHeader('Set-Cookie', "user=" + nombre );
+
+            //Login OK
+            console.log('Usuario registrado');
+            requested_content = LOGIN_CORRECTO;
+            requested_content = requested_content.replace("HTML_EXTRA", nombre);
+
+        }else{
+            requested_content = LOGIN_INCORRECTO;
+        }
+    }else{
+        path = url.pathname.split('/');
+        ext = '';
+        if (path.length > 2){
+          file = path[path.length-1]
+          ext = file.split('.')[1]
+          if(path.length == 3){
+            if (path[1].startsWith('producto')){
+              filename = file
+            }else{
+              filename = path[1] + '/' + file
+            }
+           }else{
+              filename = path[2] + '/' + file
+           }
+        }else{
+          filename = url.pathname.split('/')[1];
+          ext = filename.split('.')[1]
+        }
+        fs.readFile(filename, (err, data) => {
+          //-- Controlar si la pagina es no encontrada.
+          //-- Devolver pagina de error personalizada, 404 NOT FOUND
+          if (err){
+            res.writeHead(404, {'Content-Type': content_type});
+            res.write(ERROR);
+            res.end();
+          }else{
+            //-- Todo correcto
+            //-- Devolvemos segun el tipo de mime
+            content_type = mime[ext];
+            res.setHeader('Content-Type', content_type);
+            res.write(data);
+            res.end();
+          } 
+        });
+        return;
       }
-
-      //Definición del tipo de archivo css
-      if (resource_type == "css"){
-          mime = "text/css";
-      }
-
-      //Fichero no encontrado
-      if (err) {
-        resource = "./error.html";
-        data = fs.readFileSync(resource);
-        res.writeHead(404, {'Content-Type': mime});
-        console.log("404 Not Found");
-        res.write(data);
-        res.end();
-      }else{
-          res.writeHead(200, {'Content-Type': mime});
-          console.log("Peticion Recibida, 200 OK");
-          res.write(data);
-          res.end();
-      }
+      
+      //-- Generar respuesta
+      res.setHeader('Content-Type', content_type);
+      res.write(requested_content);
+      res.end();
     });
-});
-
-server.listen(PUERTO);
-console.log("Servidor de la tienda online escuchando en puerto: " + PUERTO);
+    
+    server.listen(PUERTO);
+    console.log("Escuchando en puerto: " + PUERTO);
