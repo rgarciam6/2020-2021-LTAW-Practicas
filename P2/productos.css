@@ -102,3 +102,13 @@ footer {
 	width: 30px;
 	height: auto;
 }
+
+.elemen{
+    padding-left: 60px;
+    font-size: 20px;
+}
+
+#barradeinicio{
+    background-color: white;
+    text-align: center;
+}
