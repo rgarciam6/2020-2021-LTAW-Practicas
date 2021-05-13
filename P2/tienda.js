@@ -108,11 +108,13 @@ const server = http.createServer((req, res) => {
         //Solo si el nombre es 'user'
         if (nombre.trim() === 'user') {
             user = valor;
+              //-- Si el nombre es 'carrito'
         }
-        });
+    });
     }else {
         console.log("Petición sin cookie");
     }
+    
 
     //Construir el objeto url con la url de la solicitud
     const url = new URL(req.url, 'http://' + req.headers['host']);  
@@ -157,7 +159,6 @@ const server = http.createServer((req, res) => {
         }
         ext = "html";
     //Procesar
-
     }else if (url.pathname == '/procesar'){
         //Se comprueba que el usuario está registrado en el JSON
         if ((registered_users.includes(nombre))){
@@ -175,6 +176,19 @@ const server = http.createServer((req, res) => {
         }else{
             requested_content = LOGIN_INCORRECTO;
         }
+    //Acceso a los productos
+    } else if (url.pathname == '/thriller'){
+      requested_content = THRILLER;
+      requested_content = requested_content.replace('DESCRIPCION1', productos_disponibles[0][1]);
+      requested_content = requested_content.replace('PRECIO1', productos_disponibles[0][2]);
+    } else if (url.pathname == '/romantica'){
+      requested_content = ROMANTICA;
+      requested_content = requested_content.replace('DESCRIPCION1', productos_disponibles[1][1]);
+      requested_content = requested_content.replace('PRECIO1', productos_disponibles[1][2]);
+    } else if (url.pathname == '/historica'){
+      requested_content = HISTORICA;
+      requested_content = requested_content.replace('DESCRIPCION1', productos_disponibles[2][1]);
+      requested_content = requested_content.replace('PRECIO1', productos_disponibles[2][2]);
     }else{
         path = url.pathname.split('/');
         ext = '';
