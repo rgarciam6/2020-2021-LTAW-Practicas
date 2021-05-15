@@ -26,35 +26,28 @@
                         {
                             "usuario": "rgarciam",
                             "nombre": "Rebeca",
-                            "email": "rgm@gmail.com",
-                            "password": "rebe"
+                            "email": "rgm@gmail.com"
 
                         },
                         {
                             "usuario": "root",
                             "nombre": "root",
-                            "email": "root@gmail.com",
-                            "password": "rootpass"
+                            "email": "root@gmail.com"
                         }
                     ]
     },
     {
         "pedidos": [
-                        {   
-                            "usuario": "rgarciam",
-                            "tarjeta": 789456,
-                            "direccion": "Calle de los Libreros, 6",
-                            "productos": [
-                                            {
-                                                "producto": "Thriller",
-                                                "unidades": 1
-                                            },
-                                            {
-                                                "producto": "Romantica",
-                                                "unidades": 1
-                                            }
-                                         ]
-                        }
-                   ]
+                {
+                 "usuario": "rgarciam",
+                 "direccion": "Calle Libreros, 6",
+                 "tarjeta": "12345",
+                  "productos": [
+                        "",
+                        "Un cuento perfecto x 1",
+                        ""
+                    ]   
+                }
+            ]
     }
 ]

@@ -1,29 +1,35 @@
-<!--Rebeca García Mencía
-P1 - TIENDA-->
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>La librería de Rebeca</title> 
-        <link rel="stylesheet" href="tienda.css">
-        <link rel="icon" href="favicon.ico">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="cliente.js" defer></script>
+    <link rel="stylesheet" href="tienda.css">
+    <title>La librería de Rebeca</title>
+</head>
+<body>
+    <div>
+        <img src="img/cabecera.png" id="cabecera">
+    </div>
+    <div id= "barradeinicio">
+        HTML_EXTRA
+        <p></p>
+        <input type="text" placeholder="Buscar..." id="caja" autocomplete="on">
+        <a href="/buscar"><button class='button'>Buscar</button></a>
+        <p id="display1"></p>
+        <p></p>
+    </div>
 
-    <body>
-        <div>
-            <img src="img/cabecera.png" id="cabecera">
-        </div>
-        <div id= "barradeinicio">
-            <a href="/login">Login</a>
-        </div>
-
-        <div id="productos">
-            <a href="/thriller"><img src="img/thriller.PNG" id="Logo-thriller"></a>
-            <a href="/romantica"><img src="img/romantica.PNG" id="Logo-romantica"></a>
-            <a href="/historica"><img src="img/historica.PNG" id="Logo-historica"></a>
-        </div>
-        <footer>
-            <p>Página realizada por Rebeca García Mencía</p>
-            <a href="https://github.com/rgarciam6"><img id="github" src="img/github.png"></a>
-        </footer>
-    </body>
+    <div id="productos">
+        <a href="/producto1"><img src="img/thriller.PNG" id="Logo-thriller"></a>
+        <a href="/producto2"><img src="img/romantica.PNG" id="Logo-romantica"></a>
+        <a href="/producto3"><img src="img/historica.PNG" id="Logo-historica"></a>
+    </div>
+    <footer>
+        <p>Página realizada por Rebeca García Mencía</p>
+        <a href="https://github.com/rgarciam6"><img id="github" src="img/github.png"></a>
+    </footer>
+    
+</body>
+</html>
