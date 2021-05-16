@@ -35,3 +35,18 @@ h3{
     color:black;
     overflow: scroll;
 }
+
+footer {
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+  }
+
+#github{
+    float: center;
+	width: 30px;
+	height: auto;
+}
