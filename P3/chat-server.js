@@ -14,11 +14,11 @@ let new_user = "Un nuevo usuario ha entrado en el chat";
 let hello_message = "¡Hola!";
 let date = new Date (Date.now());
 
-let commands = "Los comandos especiales son: " +
-                "/help: Mostrará una lista con todos los comandos soportados" + 
-                "/list: Devolverá el número de usuarios conectados" +
-                "/hello: El servidor nos devolverá el saludo" + 
-                "/date: Nos devolverá la fecha";
+let commands = "Los comandos especiales son: <br>" +
+                "/help: Mostrará una lista con todos los comandos soportados <br>" + 
+                "/list: Devolverá el número de usuarios conectados <br>" +
+                "/hello: El servidor nos devolverá el saludo <br>" + 
+                "/date: Nos devolverá la fecha <br>";
 
 let user_count = 0;
 //-- Crear una nueva aplciacion web
