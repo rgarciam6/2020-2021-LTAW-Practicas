@@ -12,7 +12,8 @@ const PUERTO = 8080;
 let welcome_message = "¡Hola, bienvenido al chat!";
 let new_user = "Un nuevo usuario ha entrado en el chat";
 let hello_message = "¡Hola!";
-let date = new Date (Date.now());
+let date = new Date();
+var options = { year: 'numeric', month: 'long', day: 'numeric' };
 
 let commands = "Los comandos especiales son: <br>" +
                 "/help: Mostrará una lista con todos los comandos soportados <br>" + 
@@ -78,7 +79,7 @@ io.on('connect', (socket) => {
             socket.send(msg);
         } else if(msg == '/date'){
             console.log("Devuelve la fecha");
-            msg = ("La fecha actual es: " + date);
+            msg = ("La fecha actual es: " + date.toLocaleDateString("es-ES", options));
             socket.send(msg);
         }else{
             console.log("Comando no reconocido");
