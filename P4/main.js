@@ -147,10 +147,12 @@ electron.app.on('ready', () => {
   version_electron = process.versions.electron;
   version_chrome = process.versions.chrome;
   arquitectura = process.arch;
+  plataforma = process.platform;
   directorio = process.cwd();
   ip_address = ip.address();
+  chat = "chat.html";
 
-  let information = [version_node, version_electron, version_chrome, arquitectura, directorio, ip_address, PUERTO, index];
+  let information = [version_node, version_electron, version_chrome, arquitectura, plataforma, directorio, ip_address, PUERTO, chat];
 
   //-- Esperar a que la página se cargue y se muestre
   //-- y luego enviar el mensaje al proceso de renderizado para que 
