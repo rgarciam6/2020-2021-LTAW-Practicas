@@ -1,0 +1,74 @@
+body{
+    background-image: url(fondo.jpg);
+    text-align: center;
+}
+
+h1{
+    color: rgb(3, 131, 89 ); 
+    font-size: 70px;
+}
+
+h2{
+    color: rgb(3, 131, 89 ); 
+    font-size: 40px;
+}
+
+#btn_test{
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: rgb(3, 131, 89 );
+}
+
+#display{
+    border-style: outset;
+    border-width: 10px;
+    border-color: rgb(84, 174, 145);
+    text-align: center;
+    height: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 25px;
+    color:black;
+    overflow: scroll;
+}
+
+.blue {
+    text-align: left;
+    font-size: 20px;
+    color: rgb(3, 131, 89 );
+}
+
+#info{
+    border-style: outset;
+    border-width: 15px;
+    border-color: rgb(84, 174, 145);
+    padding: 25px;
+    text-align: left;
+}
+
+#ip, #users {
+    border-style: outset;
+    border-width: 15px;
+    border-color: rgb(84, 174, 145);
+    padding: 5%;
+    text-align: center;
+}
+
+#left{
+    text-align: center;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 2%;
+    width: 30%;
+    position: relative;
+    float: left;
+    height: auto;
+}
+  
+#right{
+    float:right;
+    width: 50%;
+    margin-bottom: 15px;
+}
