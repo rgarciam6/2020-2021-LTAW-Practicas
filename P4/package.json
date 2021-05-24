@@ -9,12 +9,15 @@
     },
     "dependencies": {
         "colors": "^1.4.0",
-        "electron": "^12.0.7",
+        "electron": "^12.0.9",
         "express": "^4.17.1",
         "ip": "^1.1.5",
         "process": "^0.11.10",
         "qrcode-terminal": "^0.12.0",
-        "socket.io": "^4.1.1",
+        "socket.io": "^4.1.2",
         "websocket": "^1.0.34"
+    },
+    "devDependencies": {
+        "electron-builder": "^22.10.5"
     }
 }
