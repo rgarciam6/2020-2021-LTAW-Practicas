@@ -1,6 +1,4 @@
-const { protocol } = require('electron');
 const electron = require('electron');
-
 console.log("Hola desde el proceso de la web...");
 
 //-- Obtener elementos de la interfaz
@@ -30,7 +28,6 @@ electron.ipcRenderer.on('information', (event, message) => {
 
     url = ("http://" + ip_address + ":" + puerto + "/" + chat);
     ip.textContent = url;
-
   });
 
   //-- Mensaje recibido del proceso MAIN
