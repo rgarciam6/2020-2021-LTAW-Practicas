@@ -8,6 +8,7 @@ const express = require('express');
 const colors = require('colors');
 const electron = require('electron');
 const ip = require('ip');
+const process = require('process');
 
 const PUERTO = 8080;
 
