@@ -133,11 +133,7 @@ electron.app.on('ready', () => {
   //-- por defecto
   //-- Si lo queremos quitar, hay que añadir esta línea
   //win.setMenuBarVisibility(false)
-
-  //-- Cargar contenido web en la ventana
-  //-- La ventana es en realidad.... ¡un navegador!
-  //win.loadURL('https://www.urjc.es/etsit');
-
+  
   //-- Cargar interfaz gráfica en HTML
   let index = "index.html"
   win.loadFile(index);
