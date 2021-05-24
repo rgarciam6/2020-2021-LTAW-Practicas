@@ -16,7 +16,7 @@
             {
                 "nombre": "Dime quién soy",
                 "descripcion": "Novela de Julia Navarro",
-                "stock": 14,
+                "stock": 15,
                 "precio": "23.90€"
             }
         ]
@@ -45,16 +45,6 @@
                     "",
                     "Un cuento perfecto x 1",
                     ""
-                ]
-            },
-            {
-                "usuario": "rgarciam",
-                "dirección": "",
-                "tarjeta": "",
-                "productos": [
-                    "Reina Roja x 1",
-                    "",
-                    "Dime quién soy x 1"
                 ]
             }
         ]
